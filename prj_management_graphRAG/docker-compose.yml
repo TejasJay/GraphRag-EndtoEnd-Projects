@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  
+  neo4j:
+    image: neo4j:5.14
+    container_name: prjmanagement-graph-neo4j
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+      - NEO4J_dbms_security_procedures_allowlist=apoc.meta.data
+    ports:
+      - "7475:7474"
+      - "7688:7687"
+    volumes:
+      - prjmanagement_neo4j_data:/data
+
+volumes:
+  prjmanagement_neo4j_data:
