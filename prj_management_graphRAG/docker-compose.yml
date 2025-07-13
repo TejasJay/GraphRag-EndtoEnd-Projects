@@ -1,17 +1,22 @@
+# docker-compose.yml (Corrected)
+
 version: "3.8"
 
 services:
-  
   neo4j:
-    image: neo4j:5.14
+    image: neo4j:5.18.0 # Using a recent, specific version is still best
     container_name: prjmanagement-graph-neo4j
     environment:
-      - NEO4J_AUTH=neo4j/password
+      # This will now correctly read the password from your .env file
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      
+      # FIX: Switched back to NEO4J_PLUGINS as per the log message
       - NEO4J_PLUGINS=["apoc"]
+      
+      # These APOC settings are correct
       - NEO4J_apoc_export_file_enabled=true
       - NEO4J_apoc_import_file_enabled=true
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
-      - NEO4J_dbms_security_procedures_allowlist=apoc.meta.data
     ports:
       - "7475:7474"
       - "7688:7687"
@@ -20,3 +25,4 @@ services:
 
 volumes:
   prjmanagement_neo4j_data:
+    name: prjmanagement_neo4j_data
