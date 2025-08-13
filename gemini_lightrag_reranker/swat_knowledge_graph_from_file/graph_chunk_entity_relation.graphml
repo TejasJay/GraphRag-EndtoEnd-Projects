@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d11" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d10" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d9" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d8" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d7" for="edge" attr.name="description" attr.type="string" />
+  <key id="d6" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Comment">
+      <data key="d0">Comment</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains a comprehensive log of all comments and remarks associated with specific tasks within various projects managed in the SWAT (Tactical Web Administration System). In the SWAT workflow, tasks are the fundamental units of work, and the 'Remarks' field is a critical tool for communication, allowing users to leave detailed notes, progress updates, explanations for delays, or important information for team members handling subsequent tasks. This dataset captures these textual communications, linking each comment to the user who wrote it, the task it belongs to, and the parent project, providing a rich historical and contextual narrative of task execution.
+- Property 'comment_id': A unique identifier for the Comment, serving as its primary key.
+- Property 'date': The timestamp indicating the exact date and time when the comment was created and recorded in the system. This field is mapped to the 'date' property of the Comment node in the graph database. (examples values: 2025-03-04T15:49:18, 2024-10-23T19:50:05)
+- Property 'text': The full text content of the remark or comment left by the user. This field is crucial for understanding the context of task execution, as it contains free-form updates, questions, or notes for other team members. The content can be in English or French. This field is mapped to the 'text' property of the Comment node. (examples values: Added approved permit application form. Will handle invoicing through JUMP and add info to task later., Bell prévoit installer leur nouveau toron vers le 20 novembre 2020. Nous devons attendre)</data>
+      <data key="d3">chunk-2da45f96f2addd42d277ab70daf7f5eb</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="ForecastChange">
+      <data key="d0">ForecastChange</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains a historical log of all modifications made to the forecasted activation date for various projects within the SWAT (Tactical Web Administration System). Each record represents a single change event, capturing the project affected, the new forecast date, when the change was made, who made it, and the justification for the change. This data is essential for auditing project timelines, analyzing the frequency and reasons for delays, and understanding the evolution of project schedules. In the database, these records are modeled as 'ForecastChange' nodes, providing a complete change history for project planning and reporting.
+- Property 'change_timestamp': The precise date and time when the activation forecast for the project was modified. This timestamp provides an exact audit trail for when each change was entered into the SWAT system. (examples values: 2021-02-18T13:50:26, 2022-05-18T09:59:54)
+- Property 'forecast_history_id': A unique identifier for the ForecastChange, serving as its primary key.
+- Property 'justification': A textual description or categorical reason provided by the user to explain why the activation forecast was changed. This justification is crucial for project management to understand the root causes of schedule adjustments, such as procurement delays or customer-related issues. (examples values: delay - construction change, delay - procurement, original time line not realistic)
+- Property 'new_forecast_date': The new forecasted date for the project's activation as a result of the modification. This column may be null if a forecast was removed rather than changed. This is the new target date that project stakeholders will see. (examples values: 2025-09-10T00:00:00, 2023-09-12T00:00:00)</data>
+      <data key="d3">chunk-8a5146836bf12cc86f1bd0de17985f91</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="Group">
+      <data key="d0">Group</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains a comprehensive list of all user groups within the SWAT (Tactical Web Administration System). Each record defines a distinct group, which is used to manage access control, permissions, and task assignments throughout the system. As described in the business context, a user's access rights to various modules and functionalities are determined by the group they belong to. Groups can represent internal Cogeco teams (e.g., 'Cogeco - Billetterie Ontario'), specific functions ('Live Chat Support'), or external contractors ('BLUE NORTH STAR TELECOM'). This data is fundamental for organizing users and streamlining workflows, particularly for assigning tasks to a collective entity rather than just individual users.
+- Property 'group_id': A unique, system-generated numeric identifier for each group. This ID serves as the primary key for group records, ensuring that each group can be uniquely referenced throughout the SWAT application and its underlying database. It is used in relationships for task assignments and access control configurations. (examples values: 5, 46, 47)
+- Property 'name': The human-readable name of the group. This name describes the team, department, company, or functional unit the group represents. It is displayed in the user interface, such as in task assignment dropdowns, to allow users to easily identify and select the correct group. The names can be very specific, sometimes even listing the individuals that form the group. (examples values: BLUE NORTH STAR TELECOM, Live Chat Support, Cogeco - ONT NFaucher)</data>
+      <data key="d3">chunk-21c38cea60d1940f479753eea81aedf6</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="Milestone">
+      <data key="d0">Milestone</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains records of all project milestones within the SWAT (Tactical Web Administration System). In the SWAT business process, projects are broken down into a series of major phases called milestones, such as 'Evaluation', 'Design', 'Permits', and 'Construction'. Each row in this file represents a single, specific milestone for a given project, detailing its planned, actual, and ongoing timelines and durations. This data is critical for tracking the overall progress of a project, identifying bottlenecks at different phases, and conducting performance analysis against initial plans. It directly populates the 'Milestone' node in the database and is linked to the corresponding project.
+- Property 'end_date': The actual date on which all tasks within this milestone were completed and the milestone was officially closed. This is a key metric for performance analysis. (examples values: 2013-06-26T00:00:00, 2024-11-11T00:00:00)
+- Property 'expected_duration_days': The planned duration of the milestone, measured in days, as determined during the project's initial planning phase. It is derived from the difference between the 'milestone_expected_end_date' and 'milestone_expected_start_date'. (examples values: 0, 4)
+- Property 'expected_end_date': The originally planned or forecasted completion date for this milestone. The time between the expected start and end dates defines the planned duration for this project phase. (examples values: 2025-09-10T00:00:00, 2017-09-27T00:00:00)
+- Property 'expected_start_date': The originally planned or forecasted start date for this milestone. This date is set during the project's initial planning phase and is used as a baseline for tracking schedule adherence. (examples values: 2025-09-10T00:00:00, 2011-04-22T00:00:00)
+- Property 'milestone_id': Primary key that uniquely identifies each individual project milestone record within the dataset. (examples values: 1, 5)
+- Property 'name': The descriptive name of the project milestone, indicating the specific phase of the project life cycle. These names correspond to the major stages defined in the SWAT project management methodology. (examples values: 6- Infrastructure Build &amp; Activation, 4- Permitting and Approval)
+- Property 'number': A numerical identifier representing the sequential order of the milestone within the project's lifecycle. Based on the SWAT process, these numbers correspond to distinct, ordered phases like Evaluation (1), Approval (2), Design (3), etc. (examples values: 0, 3)
+- Property 'ongoing_end_date': A dynamically updated, re-forecasted end date for a milestone that is currently in progress. This date is adjusted from the original 'milestone_expected_end_date' to reflect the current progress, changes, and any experienced delays. (examples values: 2013-06-26T00:00:00, 2023-09-12T00:00:00)
+- Property 'ongoing_real_duration_days': The current elapsed duration, in days, for a milestone that is still in progress. This value is calculated from the 'milestone_start_date' to the present day, providing a real-time measure of how long the milestone has been active. (examples values: 1, 4)
+- Property 'real_duration_days': The actual duration of the milestone after its completion, measured in days. This value is calculated as the difference between the 'milestone_end_date' and 'milestone_start_date' and is used to compare actual performance against the plan. (examples values: 0, 3)
+- Property 'start_date': The actual date on which work for this milestone officially commenced. This field is populated when the milestone's status transitions to 'In progress' or a similar active state. (examples values: 2013-06-26T00:00:00, 2023-09-12T00:00:00)</data>
+      <data key="d3">chunk-6858c5c5603b55204d1f9df3d527b405</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="Project">
+      <data key="d0">Project</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains the core data for all projects managed within the SWAT (Tactical Web Administration System). Each record represents a distinct project, which could range from network extensions and reconstructions to maintenance work and new client installations. It serves as the central repository for project attributes, including identification numbers, descriptive names, types, current status, and geographical location. The file also captures critical project metrics such as the number of homes passed, build distance, key dates, assigned personnel, and financial budget identifiers. This data is foundational for tracking the entire project lifecycle, from initial creation via a form, through various milestones like evaluation, design, and construction, to final completion and closure.
+- Property 'address': The specific street address or location reference for the project site. (examples values: ~Town of, 167 Pine St, Bracebridge, ON P1L 2H8, Ca, 1125 Montée de L'Ubac J0T2R0 val-morin)
+- Property 'area': A specific local area or community associated with the project, often a more granular division within a region. (examples values: POINTE-JAUNE-XJ, LAC-BROME)
+- Property 'build_distance_m': The physical length of the required network build in meters. This value is typically determined during the '1.2 Evaluation' task and is crucial for estimating costs, materials, and effort. (examples values: 0.0, 150.5)
+- Property 'build_state': An integer code representing the project's current construction status or milestone. These milestones represent stages in the project lifecycle, such as Evaluation, Design, Permits, Construction, and Conclusion. (examples values: 0, 32, 10)
+- Property 'city': The city or municipality where the project is located. (examples values: Arnprior / Renfrew, Baie st-paul)
+- Property 'commercial_units_activated': A key performance indicator representing the number of commercial units that have been successfully connected and activated for service as a result of the project. (examples values: 0, 1)
+- Property 'commercial_units_passed': A key project metric indicating the total number of commercial units or businesses that the new or upgraded network infrastructure will pass. (examples values: 0, 2)
+- Property 'country': The country where the project is located. (examples values: Canada)
+- Property 'dependency_description': A free-text description of any external factors, events, or other projects that this project depends on for its successful completion. (examples values: REQUIRES 40 CHANNEL DWDM Installed on project PRJ-010244 before this build can be activated, waiting on customer response)
+- Property 'estimated_closure_date': The forecasted date by which the project manager estimates all work will be completed. (examples values: 2025-09-10T00:00:00, 2024-11-11T00:00:00)
+- Property 'forecasted_activation_date': The forecasted date when the network infrastructure built by the project is expected to be activated and ready for service. Referred to as 'Expected in-service date' in the UI. (examples values: 2023-09-12T00:00:00, 2021-10-04T00:00:00)
+- Property 'homes_passed': A key project metric indicating the total number of residential homes that the new or upgraded network infrastructure will pass. Referred to as 'HP (Home Pass)' in the system. (examples values: 0, 4)
+- Property 'name': The descriptive name of the project. It often follows a convention, including a prefix for the project type (e.g., BILLET, INVC), a fiscal year, and a sequence number. It can also contain other identifying information such as a request number, client name, or location. (examples values: BILLET23-08812, PA525842, MT-97R, 42197 - 469 McNaughton (CHRI:  8352))
+- Property 'node_number': The identifier for the network node or 'pochette' affected by or associated with the project. This field can contain a single node identifier or a comma-separated list of multiple nodes. (examples values: 3361, DLB-04A, LO-03U,LO-04U,LO-13U,LO-14U,LO-15U,LO-18U,LO-24U,LO-29U,LO-30U)
+- Property 'node_status': The operational status of the associated network node at the time of project creation or update. (examples values: Currently active (when project was entered), Needs activation (in this project))
+- Property 'occupancy_date': The specific date and time when a building or premises becomes occupied. This is particularly relevant for projects related to new building constructions. (examples values: 2021-08-11T14:31:26, 2023-09-26T12:35:25)
+- Property 'plant_action': An identifier for a related work order or action, likely within a Maintenance, Repair, and Operations (MRO) system, associated with the project. (examples values: MRO0054227, 1915535)
+- Property 'priority': A classification of the project's urgency or importance, typically ranging from P0 (highest) to P4 (lowest). This is frequently used for 'node split' projects. (examples values: P0, P2)
+- Property 'project_id': Primary key. A unique identifier assigned to each project within the SWAT system. (examples values: 3125, 7058)
+- Property 'project_subtype': A more granular classification of the project, providing specific details within the broader project type. This often corresponds to the selected project template. (examples values: Maintenance - Demande Générale, New Area - Extension, Major Build - Master)
+- Property 'project_type': The high-level classification of the project, indicating its general purpose or business area. (examples values: Split QC, Business client, Building)
+- Property 'province': The province or state where the project is located. (examples values: Quebec, Ontario)
+- Property 'region': The administrative or geographical region where the project is taking place. (examples values: Dundas, SAINT-WENCESLAS)
+- Property 'scope': A brief, free-text summary describing the work to be performed for the project. (examples values: renovated building into 5 units. IMS did the wiring inside and out, New development using coax technology to feed 12 single-family homes.)
+- Property 'start_date': The official date on which the project commenced. (examples values: 2023-09-12T00:00:00, 2017-01-10T00:00:00)
+- Property 'status': The current lifecycle status of the project. The status automatically updates based on the progress of its constituent tasks. (examples values: Completed, Ongoing, Cancelled)
+- Property 'workday_budget_id': An identifier for the project's budget, likely originating from an external financial system like Workday or Oracle. It is used for financial tracking and reporting. (examples values: 44822, 168357)</data>
+      <data key="d3">chunk-deb5329efc43b24bb9692a085e0990dd</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="Task">
+      <data key="d0">Task</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains individual task records for all projects managed within the SWAT (Tactical Web Administration System). In the SWAT system, complex projects such as network construction, maintenance, or client installations are broken down into a series of interconnected tasks organized into milestones. Each record in this file represents one such task, detailing its type, status, schedule (planned vs. actual), assigned personnel, and other operational attributes. This dataset is fundamental for tracking the progress of projects at a granular level, managing workflows, identifying bottlenecks, and analyzing operational efficiency. It serves as a relational link between projects, the users or groups responsible for execution, and the standardized task definitions.
+- Property 'date_created': The timestamp indicating when the task record was first created in the SWAT system, typically when the project is generated from a template. The format is ISO 8601. (examples values: 2025-07-22T07:01:06, 2022-02-08T17:31:35)
+- Property 'detailed_info_table': A reference to an external database table, likely in an Operational Data Store (ODS), that contains additional, structured, and task-specific data. Some tasks require more detailed fields than the standard task interface provides, and this column indicates the source table for that extra information. (examples values: cogeco-edh-dev.ccx_swat_ods_data.tache_projet_ontario_major_bui_023, cogeco-edh-dev.ccx_swat_ods_data.tache_projet_quebec_equipement)
+- Property 'end_date': The timestamp recorded when the task was officially completed by the assignee. The system uses this date to calculate the actual duration and trigger successor tasks. A null value indicates the task is not yet complete. (examples values: 2011-04-22T00:00:00, 2024-11-11T00:00:00)
+- Property 'expected_end_date': The planned or system-calculated completion date for the task. This date is derived from the expected start date and the task's planned duration as defined in the project template. (examples values: 2023-11-07T05:00:00, 2014-06-26T04:00:00)
+- Property 'expected_start_date': The planned or system-calculated start date for the task, based on the project's template and the completion of predecessor tasks. This is a forecast and may differ from the actual start date. (examples values: 2013-05-23T00:00:00, 2025-09-17T00:00:00)
+- Property 'explanation': A detailed, often template-based, description of the task's purpose, usage instructions, requirements for completion, and the next tasks that will be triggered. This text serves as a standard operating procedure (SOP) or guide for the assignee. The content may include simple rich text formatting tags. (examples values: Description This task is dedicated to the customer admin team to add the addresses in construction state in LODS/Compass. Usage Use this task to add the addresses in the construction state provided for this OLT project to LODS/Compass to be prepared to activate the addresses once the project is activated. Requirement to close the task Addresses in construction state added to LODS/Compass Additional comments This task cannot be duplicated. Next task triggered 7.2.3 Addresses Activation, [TEXT color:#3E3E41; font-family:tahoma;font-weight:bold;font-size:14px;]Description[/TEXT] This task is used by the contractor to submit thier invoice for the work performed in the project. [TEXT color:#3E3E41; font-family:tahoma;font-weight:bold;font-size:14px;]Usage[/TEXT] In this task, the contractors is providing the his invoice number along of all information about item codes on the invoice in the BOM. Once completed, the BOM MUST match the pricing on the invoice. If the contractor need to communicate any further information, He may use the comment box below the BOM to write them down. [TEXT color:#3E3E41; font-family:tahoma;font-weight:bold;font-size:14px;]Requirement to close the task[/TEXT] In order to close the task, the contractor must validate that the invoice respect those points: - Invoice is in PDF format and attached in the file box below the BOM - Invoice date is written on the document and match the deposit date - PO number is written on the document - Project number is written on the document - Codes: Price List codes on the invoice match the one on PO - Item Price: Match pricing to the price list and/or the PO - As-built is attach to justify billing [TEXT color:#3E3E41; font-family:tahoma;font-weight:bold;font-size:14px;]Additional comments[/TEXT] If the Invoice is higher than the PO, the invoice reject back to the contractor to revise the invoice to the PO cost. To follow the internal process, the contractor can look at process status in the right upper side of the task. [TEXT color:#3E3E41; font-family:tahoma;font-weight:bold;font-size:14px;]Next task triggered[/TEXT] 6.16 Invoice Validation)
+- Property 'last_updated_date': The timestamp of the most recent modification to any field within this task record. This is a general audit field to track the latest activity on the task. (examples values: 2023-12-21T14:06:56, 2025-05-23T03:44:34)
+- Property 'number': A sequential or coded number that represents the task's position or identifier within the project's workflow or template. For example, in the business context, a task named '7.2 CAD Update' would have a specific number. This helps in ordering and referencing tasks within a project's lifecycle. (examples values: 1, 4)
+- Property 'start_date': The timestamp recorded when the assignee actually began working on the task, typically by changing its status to 'In progress'. A null value indicates the task has not yet started. (examples values: 2013-06-26T00:00:00, 2023-09-12T00:00:00)
+- Property 'status': The current operational status of the task. The SWAT system uses these statuses to manage workflow, where a task might be 'pending' a predecessor, 'ready to start' for an assignee, 'in progress', 'completed', or 'cancelled' if not required. The 'under construction' and 'refused' statuses provide additional operational states. (examples values: ready to start, under construction)
+- Property 'status_last_modified_date': The timestamp indicating the last time the 'task_status' field was changed. This is used to track key workflow transitions, such as when a task moves from 'ready to start' to 'in progress'. (examples values: 2020-03-24T08:14:20, 2019-11-06T14:06:04)
+- Property 'task_id': This is the primary key for this Node. It is a unique identifier for each individual task record across all projects within the SWAT system. (examples values: 2500952, 14172060)</data>
+      <data key="d3">chunk-ec00122f8b998f025583cfa03cd88ac3</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="Template">
+      <data key="d0">Template</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains the master list of project templates used within the SWAT (Tactical Web Administration System). Each record defines a unique template that serves as a blueprint for creating new projects. Templates dictate a project's structure, including its type, subtype, and a series of predefined tasks with their interdependencies (predecessors and successors). They also control behavioral settings, such as notification rules and task action permissions. When a user creates a new project through a form, a specific template from this file is used to generate the project's entire lifecycle and workflow.
+- Property 'disable_action_on_standby_tasks': A boolean flag (true/false) that controls user interactions with tasks in a 'standby' state. If 'true', it prevents users from performing any actions on standby tasks for all projects generated from this template, acting as a workflow control mechanism. (examples values: True, False)
+- Property 'disable_bulk_cancel_of_tasks': A boolean flag (true/false) that enables or disables the ability to cancel multiple tasks at once. If set to 'true', it prevents bulk cancellation for projects using this template, serving as a safeguard against accidental mass removal of tasks. (examples values: True, False)
+- Property 'project_sub_type': A more specific classification of the project template, nested under the main 'project_type'. This provides a granular definition for the work to be done, such as distinguishing between different kinds of maintenance or new builds. Each sub-type corresponds to a unique template. (examples values: Maintenance - Demande Générale, New Area - Extension)
+- Property 'project_type': A high-level category that classifies the project template. This field is used to group related projects and is a primary filter in the project search interface. Examples include major initiatives like 'Reconstruction', 'Headend', or administrative categories like 'Governance'. (examples values: Governance, Quebec project)
+- Property 'send_ready_to_start_email': A boolean flag (true/false) that configures a workflow rule for the template. If set to 'true', an automated email notification is sent out whenever a task within a project created from this template transitions to the 'Ready to start' status. (examples values: True, False)
+- Property 'template_description': A human-readable description or name for the template. This often provides more context than the project sub-type, sometimes including a version date, which helps users select the correct template when initiating a project. (examples values: Facture Construction - 2023-12-07, SNOW Superviseur - 2024-05-27)
+- Property 'template_id': A unique, system-generated identifier for each project template. This serves as the primary key for this Node and uniquely identifies a 'Template' node in the database. (examples values: 1, 5)</data>
+      <data key="d3">chunk-d3eff5846399bb375361e42d2e3511f2</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="User">
+      <data key="d0">User</data>
+      <data key="d1">Node</data>
+      <data key="d2">This Node contains a master list of all users who have access to the SWAT (Tactical Web Administration System). Each record represents a unique user, identified by a user ID and their full name. These users are the individuals who perform actions within the system, such as creating projects, managing tasks, and acting in roles like Requester, Coordinator, or Planner. This file serves as the source for the 'User' nodes in the graph database, providing the foundational identity for all user-related activities and assignments tracked within SWAT.
+- Property 'name': The full name of the user. This is the human-readable identifier displayed in the SWAT interface, such as in fields for 'Requester', 'Coordinator', or the person a task is 'Assigned to'. While generally unique, minor variations or duplicates may exist. (examples values: Geneviève Rousseau, Jean-Philippe Poirier)
+- Property 'user_id': A unique, system-generated numerical identifier for each user. This ID serves as the Primary Key for this Node and uniquely identifies a user throughout the SWAT application and its associated data. It is used to link users to tasks, projects, comments, and other activities. (examples values: 1, 300)</data>
+      <data key="d3">chunk-417bbaec8ab2e5577e0dd1f56fbfaab2</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <node id="TaskName">
+      <data key="d0">TaskName</data>
+      <data key="d3">chunk-a14e63eed29333bfaa465c602dff75fc</data>
+      <data key="d2">UNKNOWN</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">custom_kg</data>
+      <data key="d5">1754772648</data>
+    </node>
+    <edge source="Comment" target="Task">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship links a `Comment` to the specific `Task` it was made about, providing essential context for understanding task history and communication.</data>
+      <data key="d8">ABOUT_TASK</data>
+      <data key="d9">chunk-c45708ad6a2a90999b09ce8492731afc</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Comment" target="TaskName">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship connects a `Comment` to a general `TaskName` (a task type), enabling queries about all feedback related to a certain kind of task, like 'Site Survey', across all projects.</data>
+      <data key="d8">CONTEXT_IS_TASK_TYPE</data>
+      <data key="d9">chunk-a14e63eed29333bfaa465c602dff75fc</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Comment" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship connects a `User` to a `Comment` they have written, making it easy to identify the author of any remark or note in the system.</data>
+      <data key="d8">WROTE</data>
+      <data key="d9">chunk-a63dac115d9535a24602654c5b24ac34</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="ForecastChange" target="Project">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship indicates which `Project` a `ForecastChange` record belongs to, which is essential for auditing the history of all timeline modifications for that project.</data>
+      <data key="d8">LOGGED_FOR</data>
+      <data key="d9">chunk-fe901bb4d1197d30eb3b1e5147098886</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="ForecastChange" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship links a `User` to a `ForecastChange` they created, providing a clear audit trail of who made a specific change to a project's timeline.</data>
+      <data key="d8">MODIFIED_FORECAST</data>
+      <data key="d9">chunk-12b9c9fc4fe6db2eed2d4b664258f084</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Group" target="Template">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship specifies that a `Group` should receive an automated notification whenever a new project is created from a particular `Template`, streamlining communication.</data>
+      <data key="d8">NOTIFIES_ON_CREATION</data>
+      <data key="d9">chunk-5da519b7ca3178484239f4d9c1863438</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Group" target="Task">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship assigns a `Task` to a `User` or `Group`, clearly defining who is responsible for its completion and managing team workloads.</data>
+      <data key="d8">ASSIGNED_TO</data>
+      <data key="d9">chunk-1e77c7ae4edd810c4c22f508027f5cf8</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Group" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship indicates that a `User` is a member of a specific `Group`, which is fundamental for managing permissions and team-based task assignments.</data>
+      <data key="d8">MEMBER_OF</data>
+      <data key="d9">chunk-72a3082b08cf74aefc61ba5726410209</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Milestone" target="Project">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship signifies that a task or milestone is a component of a larger `Project`, used to structure a project into its major phases and individual work items.</data>
+      <data key="d8">PART_OF</data>
+      <data key="d9">chunk-1f8096615de04673e7f1a05d3f4f529d</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Project" target="Template">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship indicates that a `Project` was created based on the structure and rules of a specific `Template`, which is used to find all projects of a certain type.</data>
+      <data key="d8">DEFINED_BY</data>
+      <data key="d9">chunk-c85a9a6bfab3ec87742343fbfdf91ddd</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Project" target="Project">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship creates a critical dependency between two `Project` nodes, where one must be completed before the other can proceed, essential for managing complex, multi-project initiatives.</data>
+      <data key="d8">DEPENDS_ON</data>
+      <data key="d9">chunk-415db873f47b04e8a6b04eb2cfc307ac</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Project" target="Task">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship signifies that a task or milestone is a component of a larger `Project`, used to structure a project into its major phases and individual work items.</data>
+      <data key="d8">PART_OF</data>
+      <data key="d9">chunk-1f8096615de04673e7f1a05d3f4f529d</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Project" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship identifies the `User` who is specifically responsible for the Outside Plant (OSP) work for a given `Project`, clarifying roles in network construction.</data>
+      <data key="d8">RESPONSIBLE_FOR_OSP</data>
+      <data key="d9">chunk-637d99a9bdf8d47744e8556e09916090</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Task" target="TaskName">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship links a specific `Task` instance to its generic `TaskName` definition, allowing for powerful queries that find all tasks of a particular type (e.g., all 'Invoice Validation' tasks).</data>
+      <data key="d8">IS_A</data>
+      <data key="d9">chunk-5f9975e18199df9368a83e070a86f3c5</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="Task" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship connects a `User` to a `Task` whose status they have updated, which is used for tracking task-level progress and user activity.</data>
+      <data key="d8">MODIFIED_STATUS_OF</data>
+      <data key="d9">chunk-889d7709dd0e3ad91b2d2ffb9bdf5ce3</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="User" target="User">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship represents a professional connection between two `User` nodes, indicating that they are colleagues, which can be used to find team members or alternative contacts.</data>
+      <data key="d8">CO_WORKER</data>
+      <data key="d9">chunk-42907dde27d0007f76187badc3525256</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+    <edge source="TaskName" target="TaskName">
+      <data key="d6">0.9</data>
+      <data key="d7">This relationship defines the required sequential workflow for tasks, indicating that one `TaskName` must be completed before another can begin within a project template.</data>
+      <data key="d8">PRECEDES</data>
+      <data key="d9">chunk-b8f0589845173d17b3fd74c914def091</data>
+      <data key="d10">custom_kg</data>
+      <data key="d11">1754772648</data>
+    </edge>
+  </graph>
+</graphml>
