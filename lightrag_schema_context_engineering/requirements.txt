@@ -1,0 +1,39 @@
+# Core RAG Framework
+google-generativeai>=0.3.0
+openai>=1.0.0
+cohere>=4.0.0
+sentence-transformers>=2.2.0
+
+# Vector Stores and Search
+faiss-cpu>=1.7.0
+rank-bm25>=0.2.2
+
+# Text Processing
+numpy>=1.21.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+
+# Configuration and Utilities
+pyyaml>=6.0
+python-dotenv>=0.19.0
+
+# Production API Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+
+# Streamlit UI
+streamlit>=1.28.0
+
+# HTTP Client
+requests>=2.31.0
+
+# Optional: Weights & Biases for experiment tracking
+# wandb>=0.15.0
+
+# Optional: Neo4j integration
+# neo4j>=5.0.0
+
+# Development and Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0 
